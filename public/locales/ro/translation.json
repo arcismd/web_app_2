@@ -1,0 +1,144 @@
+{
+    "Evacuator": {
+        "1": "Evacuator",
+        "2": "Avantajele",
+        "3": "Servicii",
+        "4": "Despre Noi"
+    },
+
+    "act": {
+        "1": "ACTIVĂM",
+        "2": "Doar",
+        "3": "de la",
+        "4": "Lei",
+        "5": "APELEAZĂ ",
+        "6": "ACUM!"
+    },
+
+    "info-bottom": {
+        "1": "Local",
+        "2": "Național",
+        "3": "Internațional",
+
+        "4": "Evacuăm automobilul dvs.",
+        "5": "în 15 minute",
+
+        "6": "Partener de",
+        "7": "încredere",
+        "8": "pe piaţa de profil"
+    },
+
+    "info-top": {
+        "1": "Noi, cei de la",
+        "2": "vă oferim un serviciu de",
+        "3": "remorcare 24 de ore pe zi",
+        "4": "și asistență rutieră 24 de ore pe zi",
+
+        "5": "Garantat la",
+        "6": "cel mai mic preț",
+        "7": "de pe piață",
+
+        "8": "În raport cu cea mai bună",
+        "9": "calitate"
+    },
+
+    "what-to-do": {
+        "1": "Am nevoie",
+        "2": "de un camion de tractare",
+        "3": "Ce fac?",
+
+
+        "4": "Sună-ne!",
+        "5": "Informare",
+        "6": "Unde?",
+        "7": "Sosire",
+
+        "8": "Liniile noastre",
+        "9": "telefonice sunt mereu deschise",
+        "10": "Suntem bucuroși să vă ajutăm oricând la",
+
+        "11": "Trebuie să știm",
+        "12": " locația dvs.",
+        "13": "și ce este în neregulă cu mașina dvs.",
+
+        "14": "Vă vom remorca mașina oriunde doriți. Vă putem",
+        "15": "ajuta să alegeți un atelier de reparații ",
+        "16": "auto potrivit",
+
+        "17": "În funcție de locația dvs., de obicei",
+        "18": "ne durează 15-60 de minute",
+        "19": "pentru a ajunge la destinație"
+    },
+
+    "about-us": {
+        "1": "Avantajele",
+        "2": "care sunt atât de apreciate de clienții noștri",
+        
+        "3": "Cele mai mici prețuri",
+        "4": "Sosire în 15 minute",
+        "5": "Întotdeauna în contact",
+        "6": "Manipulare atentă",
+        
+        "7": "mai ieftin nu vei găsi",
+        "8": "economisiți timp",
+        "9": "sună-ne oricând",
+        "10": "mașina ta este în siguranță"
+    },
+
+    "warranties": {
+        "1": "Garanția prețului scăzut",
+        "2": "Avantajul nostru, cel mai important, îl reprezintă preţurile rezonabile aferente serviciilor precum şi experienţa în serviciile de tractări auto, calităţi ce ne-au impus ca partener de încredere pe piaţa de profil",
+        
+        "3": "Suna-ți",
+        "4": "Pentru a obține sprijin instantaneu"
+    },
+
+    "price": {
+        "1": "Preț",
+        "2": "DE LA",
+        
+        "3": "LEI",
+        "4": "Prețul unei mașini tractate se calculează în funcție de distanța și greutatea mașinii!"
+    },
+
+    "info": {
+        "1": "Executăm servicii de evacuare",
+        "2": "atât în",
+        "3": "Chișinău",
+        "4": "cât și în",
+        "5": "străinătate",
+
+        "6": "Circulăm în diverse regiuni,",
+        "15": "precum",
+        "7": "Efectuăm comenzi în Moldova și în afara țării",
+        "16": "Pentru detalii apelați",
+
+        "8": "Moldova",
+        "9": "România",
+        "10": "Ucraina",
+        "11": "Bulgaria",
+        "12": "Polonia",
+        "13": "Ungaria",
+        "14": "Etc.",
+
+        "18": "Tehnica noastră",
+        "19": "Remorcare profesională pentru toate vehiculele",
+        "20": "Creat de",
+
+        "21": "Oferim remorcare pentru",
+        "22": "toate tipurile de vehicule,",
+        "23": "inclusiv mașini, camionete, motociclete și vehicule grele. Câteva dintre",
+        "24": "camioanele noastre de remorcare sunt ideale",
+        "25": "pentru remorcare grea, care implică remorcare RV, autobuze, camioane, mașini grele etc.",
+        
+        
+        "26": "Camioanele noastre cu platformă ne permit să remorcăm multe tipuri de vehicule, inclusiv cele",
+        "27": "cu tracțiune integrală și/sau transmisie automată",
+        "28": "În plus, avem mașini mici de tractare pentru parcări înguste și alte locuri înguste",
+
+        "29": "Indiferent dacă ați avut un accident de mașină sau",
+        "30": "vehiculul dumneavoastră are nevoie de recuperare",
+        "31": "în teren (troliu, adică, scoaterea unei mașini dintr-un șanț, de exemplu) sau mașina dumneavoastră pur și simplu s-a oprit să funcționeze în timp ce conduceți, sunteți în locul potrivit pentru a apela! Ne puteți",
+        "32": "contacta zi și noapte (24h) la telefon la +373 60 125601"
+    }
+}

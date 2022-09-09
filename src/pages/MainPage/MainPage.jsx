@@ -1,6 +1,8 @@
 import React from 'react'
 import { AboutUs } from '../../components/AboutUs/AboutUs'
 import { Footer } from '../../components/Footer/Footer'
+import { useTranslation } from 'react-i18next';
+
 
 import './mainpage.scss'
 
@@ -8,62 +10,81 @@ import phone from '../../images/phone.png'
 import place from '../../images/place.png'
 
 export const MainPage = () => {
-  return (
-    <>
+
+const { t, i18n } = useTranslation();
+
+function clickLanguage(lang) {
+i18n.changeLanguage(lang);
+}
+
+return (
+<>
     <div className='mainpage-wrapper'>
         <div className='mainpage'>
-            <h1>ACTIVĂM <span>NON-STOP</span><br></br>
-            <span id='subtext'><span>Doar</span> de la <span>200 lei</span></span></h1>
-            <div className='call-us-element'>
-                <img className='phone' src={phone} width={100} alt='Phone' />
-            </div>
-            <h2>Apelează <span>acum!</span></h2>
+            <h1>{t('act.1')} <span>NON-STOP</span><br></br>
+                <span id='subtext'><span>{t('act.2')}</span> {t('act.3')} <span>200 {t('act.4')}</span></span></h1>
+            <a href="tel:+37360125601">
+                <div className='call-us-element'>
+                    <img className='phone' src={phone} width={100} alt='Phone' />
+                </div>
+            </a>
+            <h2>{t('act.5')} <span>{t('act.6')}</span></h2>
             <div className='services-info'>
                 <div className='left-item'>
-                <p> <span><img src={place} width={24} height={24} /></span> Local </p>
-                <p> <span><img src={place} width={24} height={24} /></span> Național </p>
-                <p> <span><img src={place} width={24} height={24} /></span> Internațional </p>
+                    <p> <span><img src={place} width={24} height={24} alt='Local' /></span> {t('info-bottom.1')} </p>
+                    <p> <span><img src={place} width={24} height={24} alt='National' /></span> {t('info-bottom.2')} </p>
+                    <p> <span><img src={place} width={24} height={24} alt='International' /></span> {t('info-bottom.3')}
+                    </p>
                 </div>
                 <div className='right-item'>
-                    <div>Partener de <span className='t'>încredere</span> <span className='p'>pe piaţa de profil</span></div>
+                    <div>{t('info-bottom.6')} <span className='t'>{t('info-bottom.7')}</span> <span
+                            className='p'>{t('info-bottom.8')}.</span></div>
                 </div>
             </div>
         </div>
         <div className='mainp'>
             <div className='flex-header-element'>
-            <div className='header-left-item'>
-            Noi, cei de la <span>"EVACUATORUL"</span>, vă oferim un serviciu de <span className='t'>remorcare 24 de ore pe zi</span> și asistență rutieră 24 de ore pe zi.
-            <p>Garantat la <span>cel mai mic preț</span> de pe piață -</p>
-            <p className='space-text-left'>În raport cu cea mai bună <span>calitate</span>.</p>
-            </div>
-            <div className='header-right-item'>
-        <h1>ACTIVĂM <span>NON-STOP</span><br></br>
-            <span id='subtext'><span>Doar</span> de la <span>200 lei</span></span></h1>
-            <div className='call-us-element'>
-                <img className='phone' src={phone} width={100} alt='Phone' />
-            </div>
-            <h2>Apelează <span>acum!</span></h2>
-            </div>
+                <div className='header-left-item'>
+                    {t('info-top.1')} <span>"EVACUATORUL"</span>, {t('info-top.2')} <span
+                        className='t'>{t('info-top.3')}</span> {t('info-top.4')}.
+                    <p>{t('info-top.5')} <span>{t('info-top.6')}</span> {t('info-top.7')} -</p>
+                    <p className='space-text-left'>{t('info-top.8')} <span>{t('info-top.9')}</span>.</p>
+                </div>
+                <div className='header-right-item'>
+                    <h1>{t('act.1')} <span>NON-STOP</span><br></br>
+                        <span id='subtext'><span>{t('act.2')}</span> {t('act.3')} <span>200 {t('act.4')}</span></span>
+                    </h1>
+                    <a href="tel:+37360125601">
+                        <div className='call-us-element'>
+                            <img className='phone' src={phone} width={100} alt='Phone' />
+                        </div>
+                    </a>
+                    <h2>{t('act.5')} <span>{t('act.6')}</span></h2>
+                </div>
             </div>
             <div className='services-info'>
                 <div className='services-info-flex'>
-                <div className='left-item'>
-                <p> <span><img src={place} width={24} height={24} /></span> Local </p>
-                <p> <span><img src={place} width={24} height={24} /></span> Național </p>
-                <p> <span><img src={place} width={24} height={24} /></span> Internațional </p>
-                </div>
-                <div className='center-item-2'>
-                    Evacuăm automobilul dvs. <span className='t'>în 15 minute</span>.
-                </div>
-                <div className='right-item'>
-                    <div>Partener de <span className='t'>încredere</span> <span className='p'>pe piaţa de profil</span></div>
-                </div>
+                    <div className='left-item'>
+                        <p> <span><img src={place} width={24} height={24} alt='Local' /></span> {t('info-bottom.1')}
+                        </p>
+                        <p> <span><img src={place} width={24} height={24} alt='National' /></span> {t('info-bottom.2')}
+                        </p>
+                        <p> <span><img src={place} width={24} height={24} alt='International' /></span>
+                            {t('info-bottom.3')} </p>
+                    </div>
+                    <div className='center-item-2'>
+                        {t('info-bottom.4')} <span className='t'><br></br>{t('info-bottom.5')}</span>
+                    </div>
+                    <div className='right-item'>
+                        <div>{t('info-bottom.6')} <span className='t'>{t('info-bottom.7')}</span> <span
+                                className='p'>{t('info-bottom.8')}.</span></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <AboutUs />
     <Footer />
-    </>
-  )
+</>
+)
 }

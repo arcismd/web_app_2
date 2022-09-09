@@ -1,5 +1,6 @@
 .footer-wrapper {
     background: #000814;
+
     .footer {
         position: relative;
         display: flex;
@@ -20,27 +21,30 @@
             color: whitesmoke;
             text-align: center;
             position: relative;
-    
+
             span {
                 border-bottom: 1px solid whitesmoke;
             }
-    
+
             a {
                 color: whitesmoke;
                 opacity: .6;
                 text-decoration: none;
-    
+
                 &:hover {
                     opacity: .9;
                 }
             }
         }
     }
+
     @media (max-width: 1240px) {
-       .footer {
-        width: 100%;
-       }
+        .footer {
+            width: 100%;
+            padding: 0 10px;
+        }
     }
+
     @media (max-width: 1050px) {
         .left-item {
             display: none;

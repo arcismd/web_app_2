@@ -5,6 +5,8 @@ import { MainPage } from './pages/MainPage/MainPage'
 
 import './styles/app.scss'
 
+import './i18next.js'
+
 function App() {
   return (
     <>

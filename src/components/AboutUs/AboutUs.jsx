@@ -1,6 +1,7 @@
 import React from 'react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { useTranslation } from 'react-i18next';
 
 import price from '../../images/price.png'
 import time from '../../images/time.png'
@@ -17,300 +18,354 @@ import img4 from '../../images/carousel/c-4.jpeg'
 
 import './aboutus.scss'
 
+import * as Scroll from 'react-scroll';
+import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
 export const AboutUs = () => {
+const responsive = {
+superLargeDesktop: {
+// the naming can be any, depends on you.
+breakpoint: { max: 4000, min: 3000 },
+items: 5
+},
+desktop: {
+breakpoint: { max: 3000, min: 1024 },
+items: 3
+},
+tablet: {
+breakpoint: { max: 1024, min: 464 },
+items: 2
+},
+mobile: {
+breakpoint: { max: 464, min: 0 },
+items: 1
+}
 
-    const responsive = {
-        superLargeDesktop: {
-          // the naming can be any, depends on you.
-          breakpoint: { max: 4000, min: 3000 },
-          items: 5
-        },
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 3
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 2
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1
-        }
-      };
+};
 
-  return (
-    <>
+const { t, i18n } = useTranslation();
+
+function clickLanguage(lang) {
+i18n.changeLanguage(lang);
+}
+
+return (
+<>
     <div className='about-us-wrapper'>
         <div className='what-to-do'>
-        <h1><span className='top-line'>Am nevoie</span> de un camion de tractare. <span className='bottom-line'>Ce fac?</span></h1>
-        <div className='info-1'>
-        <p>1. Sună-ne!</p>
-        <span className='info-item'>Liniile noastre <strong>telefonice sunt mereu deschise</strong>. Suntem bucuroși să vă ajutăm oricând la <strong>+373 60 125 601.</strong></span>
-        </div>
-        <div className='info-1'>
-        <p>2. Informare</p>
-        <span className='info-item'>Trebuie să știm <strong>locația dvs.</strong>, și ce este în neregulă cu mașina dvs.</span>
-        </div>
-        <div className='info-1'>
-        <p>3. Unde?</p>
-        <span className='info-item'>Vă vom remorca mașina oriunde doriți. Vă putem <strong>ajuta să alegeți un atelier de reparații</strong> auto potrivit.   </span>     </div>
-        <div className='info-1'>
-        <p>4. Sosire</p>
-        <span className='info-item'>În funcție de locația dvs., de obicei <strong>ne durează 15-60 de minute</strong> pentru a ajunge la destinație.  </span>      </div>
+            <h1><span className='top-line'>{t('what-to-do.1')}</span> {t('what-to-do.2')}. <span
+                    className='bottom-line'>{t('what-to-do.3')}</span></h1>
+            <div className='info-1'>
+                <p>1. {t('what-to-do.4')}</p>
+                <span className='info-item'>{t('what-to-do.8')} <strong>{t('what-to-do.9')}</strong>.
+                    {t('what-to-do.10')} <strong className='phone-number-next-line'>+373 60 125 601.</strong></span>
+            </div>
+            <div className='info-1'>
+                <p>2. {t('what-to-do.5')}</p>
+                <span className='info-item'>{t('what-to-do.11')} <strong>{t('what-to-do.12')}</strong>,
+                    {t('what-to-do.13')}</span>
+            </div>
+            <div className='info-1'>
+                <p>3. {t('what-to-do.6')}</p>
+                <span className='info-item'>{t('what-to-do.14')} <strong>{t('what-to-do.15')}</strong>
+                    {t('what-to-do.16')}. </span>
+            </div>
+            <div className='info-1'>
+                <p>4. {t('what-to-do.7')}</p>
+                <span className='info-item'>{t('what-to-do.17')} <strong>{t('what-to-do.18')}</strong>
+                    {t('what-to-do.19')}. </span>
+            </div>
         </div>
         <div className='about-us'>
             <div className='dashed-line'></div>
-            <h2>Avantajele,</h2>
-            <h3>care sunt atât de apreciate de clienții noștri</h3>
-                <div>
-                    <img src={price} width={120} alt='Price'/>
-                    <p>Cele mai mici prețuri
-                    <span>mai ieftin nu vei găsi</span>
-                    </p>
-                </div>
-                <div>
-                    <img src={time} width={120} alt='Fast'/>
-                    <p>Sosire în 15 minute
-                    <span>economisiți timp</span>
-                    </p>
-                </div>
-                <div>
-                    <img src={every} width={120} alt='24/7'/>
-                    <p>Întotdeauna în contact
-                    <span>sună-ne oricând</span>
-                    </p>
-                </div>
-                <div>
-                    <img src={care} width={120} alt='Care'/>
-                    <p>Manipulare atentă
-                    <span>mașina ta este în siguranță</span>
-                    </p>
-                </div>
+            <h2>{t('about-us.1')},</h2>
+            <h3>{t('about-us.2')}</h3>
+            <div>
+                <img src={price} width={120} alt='Price' />
+                <p>{t('about-us.3')}
+                    <span>m{t('about-us.7')}</span>
+                </p>
+            </div>
+            <div>
+                <img src={time} width={120} alt='Fast' />
+                <p>{t('about-us.4')}
+                    <span>{t('about-us.8')}</span>
+                </p>
+            </div>
+            <div>
+                <img src={every} width={120} alt='24/7' />
+                <p>{t('about-us.5')}
+                    <span>{t('about-us.9')}</span>
+                </p>
+            </div>
+            <div>
+                <img src={care} width={120} alt='Care' />
+                <p>{t('about-us.6')}
+                    <span>{t('about-us.10')}</span>
+                </p>
+            </div>
         </div>
         <div className='warranties'>
-            <h2>Garanția prețului scăzut</h2>
-            <h3>Avantajul nostru, cel mai important, îl reprezintă preţurile rezonabile aferente serviciilor precum şi experienţa în serviciile de tractări auto, calităţi ce ne-au impus ca partener de încredere pe piaţa de profil.</h3>
+            <h2>{t('warranties.1')}</h2>
+            <h3>{t('warranties.2')}.</h3>
         </div>
         <div className='call-us'>
-            <h2>Suna-ți</h2>
+            <h2>{t('warranties.3')}</h2>
             <div className='btn'>
-            <button className='call-btn'> <img src={phone} width={40} alt='Phone'/>+373 68 06 77 83</button>
+                <a href="tel:+37360125601"><button className='call-btn'> <img src={phone} width={40} alt='Phone' />+373
+                        601 25 601</button></a>
             </div>
-            <h3>Pentru a obține sprijin instantaneu.</h3>
+            <h3>{t('warranties.4')}.</h3>
         </div>
         <div className='pricelist'>
             <div className='flex'>
-                <div className='line'></div> 
-                    <h2><strong>Preț</strong></h2>
-                <div className='line'></div> 
+                <div className='line'></div>
+                <h2><strong>{t('price.1')}</strong></h2>
+                <div className='line'></div>
             </div>
-            <div className='text'>DE LA <span>200 LEI</span>
-            <div className='info-text'>
-            *Prețul unei mașini tractate se calculează în funcție de distanța și greutatea mașinii!
-            </div>
+            <div className='text'>{t('price.2')} <span>200 {t('price.3')}</span>
+                <div className='info-text'>
+                    *{t('price.4')}
+                </div>
             </div>
         </div>
         <div className='info'>
-            <h2>Executăm servicii de evacuare <strong>24/24</strong>, atât în <strong>Chișinău</strong>, cât și în <strong>străinătate</strong>.</h2>
+            <h2>{t('info.1')} <strong>24/24</strong>, {t('info.2')} <strong>{t('info.3')}</strong>, {t('info.4')}
+                <strong>{t('info.5')}</strong>.</h2>
         </div>
         <div className='locations'>
-            <h2>Circulăm în diverse regiuni, <span>precum:</span></h2>
+            <h2>{t('info.6')} <span>{t('info.15')}:</span></h2>
             <ul>
                 <div>
-                <li>Moldova</li>
-                <li>România</li>
-                <li>Ucraina</li>
-                <li>Bulgaria</li>
+                    <li>{t('info.8')}</li>
+                    <li>{t('info.9')}</li>
+                    <li>{t('info.10')}</li>
+                    <li>{t('info.11')}</li>
                 </div>
                 <div>
-                <li>Polonia</li>
-                <li>Ungaria</li>
-                <li>Etc.</li>
+                    <li>{t('info.12')}</li>
+                    <li>{t('info.13')}</li>
+                    <li>{t('info.14')}</li>
                 </div>
             </ul>
             <div className='show-text'>
-                <h3>Efectuăm comenzi în Moldova și în afara țării. <span>Pentru detalii apelați.</span></h3>
+                <h3>{t('info.7')}. <span>{t('info.16')}.</span></h3>
             </div>
             <div className='locations-b'></div>
         </div>
         <div className='call-us-2'>
-            <h2>Suna-ți</h2>
+            <h2>{t('warranties.3')}</h2>
             <div className='btn'>
-            <button className='call-btn'> <img src={phone2} width={40} alt='Phone'/>+373 68 06 77 83</button>
+                <a href="tel:+37360125601"><button className='call-btn'> <img src={phone2} width={40} alt='Phone' />+373
+                        601 25 601</button></a>
             </div>
             <div className='space'></div>
         </div>
-        <h1 className='info-2-title'>Remorcare profesională pentru toate vehiculele</h1>
+        <h1 className='info-2-title'>{t('info.19')}</h1>
         <div className='info-2'>
             <h2>
-                <p>Oferim remorcare pentru <strong>toate tipurile de vehicule</strong>, inclusiv mașini, camionete, motociclete și vehicule grele. Câteva dintre <strong>camioanele noastre de remorcare sunt ideale</strong> pentru remorcare grea, care implică remorcare RV, autobuze, camioane, mașini grele etc.</p>
+                <p>{t('info.21')} <strong>{t('info.22')}</strong> {t('info.23')} <strong>{t('info.24')}</strong>
+                    {t('info.25')}</p>
 
-                <p>Camioanele noastre cu platformă ne permit să remorcăm multe tipuri de vehicule, inclusiv cele <strong>cu tracțiune integrală și/sau transmisie automată</strong>. În plus, avem mașini mici de tractare pentru parcări înguste și alte locuri înguste.</p>
+                <p>{t('info.26')} <strong>{t('info.27')}</strong>. {t('info.28')}.</p>
 
-                <p>Indiferent dacă ați avut un accident de mașină sau <strong>vehiculul dumneavoastră are nevoie de recuperare</strong> în teren (troliu, adică, scoaterea unei mașini dintr-un șanț, de exemplu) sau mașina dumneavoastră pur și simplu s-a oprit să funcționeze în timp ce conduceți, sunteți în locul potrivit pentru a apela! Ne puteți <strong>contacta zi și noapte (24h) la telefon la +373 60 125601.</strong></p></h2>
-        </div>
-
-        <h1 className='info-3-title'>Tehnica noastră</h1>
-<Carousel responsive={responsive}>
-  <div className='carousel'><img src={img1} /></div>
-  <div className='carousel'><img src={img2} /></div>
-  <div><img src={img3} /></div>
-  <div className='carousel'><img src={img4} /></div>
-</Carousel>
-
-
-        <div className='call-us'>
-            <h2>Suna-ți</h2>
-            <div className='btn'>
-            <button className='call-btn'> <img src={phone} width={40} alt='Phone'/>+373 68 06 77 83</button>
-            </div>
-            <h3>Pentru a obține sprijin instantaneu.</h3>
-        </div>
-    </div>
-    
-    <div className='content-wrapper'>
-        <div className='content'>
-        <div className='what-to-do'>
-                <h1><span className='top-line'>Am nevoie</span> de un camion de tractare. <span className='bottom-line'>Ce fac?</span></h1>
-            <div className='flex-what-to-do'>
-                <div className='info-1'>
-                <p>1. Sună-ne!</p>
-                <span className='info-item'>Liniile noastre <strong>telefonice sunt mereu deschise</strong>. Suntem bucuroși să vă ajutăm oricând la <strong className='phone-number-next-line'>+373 60 125 601.</strong></span>
-                </div>
-                <div className='info-1'>
-                <p>2. Informare</p>
-                <span className='info-item'>Trebuie să știm <strong>locația dvs.</strong>, și ce este în neregulă cu mașina dvs.</span>
-                </div>
-                <div className='info-1'>
-                <p>3. Unde?</p>
-                <span className='info-item'>Vă vom remorca mașina oriunde doriți. Vă putem <strong>ajuta să alegeți un atelier de reparații</strong> auto potrivit.   </span>     </div>
-                <div className='info-1'>
-                <p>4. Sosire</p>
-                <span className='info-item'>În funcție de locația dvs., de obicei <strong>ne durează 15-60 de minute</strong> pentru a ajunge la destinație.  </span>      </div>
-            </div>
-        </div>
-        <div className='about-us'>
-            <div className='dashed-line'></div>
-            <h2>Avantajele,</h2>
-            <h3>care sunt atât de apreciate de clienții noștri</h3>
-            <div className='flex-about-us'>
-                <div>
-                    <img src={price} width={120} alt='Price'/>
-                    <p>Cele mai mici prețuri
-                    <span>mai ieftin nu vei găsi</span>
-                    </p>
-                </div>
-                <div>
-                    <img src={time} width={120} alt='Fast'/>
-                    <p>Sosire în 15 minute
-                    <span>economisiți timp</span>
-                    </p>
-                </div>
-                <div>
-                    <img src={every} width={120} alt='24/7'/>
-                    <p>Întotdeauna în contact
-                    <span>sună-ne oricând</span>
-                    </p>
-                </div>
-                <div>
-                    <img src={care} width={120} alt='Care'/>
-                    <p>Manipulare atentă
-                    <span>mașina ta este în siguranță</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div className='flex-warranties'>
-        <div className='warranties'>
-            <h2>Garanția prețului scăzut</h2>
-            <h3>Avantajul nostru, cel mai important, îl reprezintă preţurile rezonabile aferente serviciilor precum şi experienţa în serviciile de tractări auto, calităţi ce ne-au impus ca partener de încredere pe piaţa de profil.</h3>
-        </div>
-        <div className='call-us'>
-            <h2>Suna-ți</h2>
-            <div className='btn'>
-            <button className='call-btn'> <img src={phone} width={40} alt='Phone'/>+373 68 06 77 83</button>
-            </div>
-            <h3>Pentru a obține sprijin instantaneu.</h3>
-        </div>
-        </div>
-
-        <div className='content'>
-        <div className='pricelist'>
-            <div className='flex'>
-                <div className='line'></div> 
-                    <h2><strong>Preț</strong></h2>
-                <div className='line'></div> 
-            </div>
-            <div className='text'>DE LA <span>200 LEI</span>
-            <div className='info-text'>
-            *Prețul unei mașini tractate se calculează în funcție de distanța și greutatea mașinii!
-            </div>
-            </div>
-        </div>
-        <div className='info'>
-            <h2>Executăm servicii de evacuare <strong>24/24</strong>, atât în <strong>Chișinău</strong>, cât și în <strong>străinătate</strong>.</h2>
-        </div>
-        <div className='locations'>
-            <div className='flex-locations'>
-                <div className='locations-items'>
-            <h2>Circulăm în diverse regiuni, <span>precum:</span></h2>
-            <ul>
-                <div>
-                <li>Moldova</li>
-                <li>România</li>
-                <li>Ucraina</li>
-                <li>Bulgaria</li>
-                </div>
-                <div>
-                <li>Polonia</li>
-                <li>Ungaria</li>
-                <li>Etc.</li>
-                </div>
-            </ul>
-            </div>
-            <div className='show-text'>
-                <h3>Efectuăm comenzi în Moldova și în afara țării. <span>Pentru detalii apelați.</span></h3>
-            </div>
-            </div>
-        </div>
-        <div className='call-us-2'>
-            <h2>Suna-ți</h2>
-            <div className='btn'>
-            <button className='call-btn'> <img src={phone2} width={40} alt='Phone'/>+373 68 06 77 83</button>
-            </div>
-            <div className='space'></div>
-        </div>
-        <h1 className='info-2-title'>Remorcare profesională pentru toate vehiculele</h1>
-        <div className='info-2'>
-            <h2 className='flex-info-2'>
-                <p>Oferim remorcare pentru <strong>toate tipurile de vehicule</strong>, inclusiv mașini, camionete, motociclete și vehicule grele. Câteva dintre <strong>camioanele noastre de remorcare sunt ideale</strong> pentru remorcare grea, care implică remorcare RV, autobuze, camioane, mașini grele etc.</p>
-
-                <p>Camioanele noastre cu platformă ne permit să remorcăm multe tipuri de vehicule, inclusiv cele <strong>cu tracțiune integrală și/sau transmisie automată</strong>. În plus, avem mașini mici de tractare pentru parcări înguste și alte locuri înguste.</p>
-
-                <p>Indiferent dacă ați avut un accident de mașină sau <strong>vehiculul dumneavoastră are nevoie de recuperare</strong> în teren (troliu, adică, scoaterea unei mașini dintr-un șanț, de exemplu) sau mașina dumneavoastră pur și simplu s-a oprit să funcționeze în timp ce conduceți, sunteți în locul potrivit pentru a apela! Ne puteți <strong>contacta zi și noapte (24h) la telefon la +373 60 125601.</strong></p>
+                <p>{t('info.29')} <strong>{t('info.30')}</strong> {t('info.31')} <strong>{t('info.32')}.</strong></p>
             </h2>
         </div>
 
-        <h1 className='info-3-title'>Tehnica noastră</h1>
-        <div className='flex-carousel'>
-<Carousel responsive={responsive}>
-  <div className='carousel'><img src={img1} /></div>
-  <div className='carousel'><img src={img2} /></div>
-  <div><img src={img3} /></div>
-  <div className='carousel'><img src={img4} /></div>
-</Carousel>
-<div className='call-us-2'>
-            <h2>Suna-ți</h2>
+        <h1 className='info-3-title'>{t('info.18')}</h1>
+        <Carousel responsive={responsive}>
+            <div className='carousel'><img src={img1} alt='Transport' /></div>
+            <div className='carousel'><img src={img2} alt='Transport' /></div>
+            <div><img src={img3} alt='Transport' /></div>
+            <div className='carousel'><img src={img4} alt='Transport' /></div>
+        </Carousel>
+
+
+        <div className='call-us'>
+            <h2>{t('warranties.3')}</h2>
             <div className='btn'>
-            <button className='call-btn'> <img src={phone2} width={40} alt='Phone'/>+373 68 06 77 83</button>
+                <a href="tel:+37360125601"><button className='call-btn'> <img src={phone} width={40} alt='Phone' />601
+                        25 601</button></a>
             </div>
-            <div className='space'></div>
-        </div>
-</div>
+            <h3>Pentru a obține sprijin instantaneu.</h3>
         </div>
     </div>
-   </>
-  )
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div className='content-wrapper'>
+        <div className='content'>
+            <div className='what-to-do'>
+                <h1><span className='top-line'>{t('what-to-do.1')}</span> {t('what-to-do.2')}. <span
+                        className='bottom-line'>{t('what-to-do.3')}</span></h1>
+                <div className='flex-what-to-do'>
+                    <div className='info-1'>
+                        <p>1. {t('what-to-do.4')}</p>
+                        <span className='info-item'>{t('what-to-do.8')} <strong>{t('what-to-do.9')}</strong>.
+                            {t('what-to-do.10')} <strong className='phone-number-next-line'>+373 60 125
+                                601.</strong></span>
+                    </div>
+                    <div className='info-1'>
+                        <p>2. {t('what-to-do.5')}</p>
+                        <span className='info-item'>{t('what-to-do.11')} <strong>{t('what-to-do.12')}</strong>,
+                            {t('what-to-do.13')}</span>
+                    </div>
+                    <div className='info-1'>
+                        <p>3. {t('what-to-do.6')}</p>
+                        <span className='info-item'>{t('what-to-do.14')} <strong>{t('what-to-do.15')}</strong>
+                            {t('what-to-do.16')}. </span>
+                    </div>
+                    <div className='info-1'>
+                        <p>4. {t('what-to-do.7')}</p>
+                        <span className='info-item'>{t('what-to-do.17')} <strong>{t('what-to-do.18')}</strong>
+                            {t('what-to-do.19')}. </span>
+                    </div>
+                </div>
+            </div>
+            <div className='about-us'>
+                <div className='dashed-line'></div>
+                <Element name="avantajele">
+                </Element>
+                <h2>{t('about-us.1')},</h2>
+                <h3>{t('about-us.2')}</h3>
+                <div className='flex-about-us'>
+                    <div>
+                        <img src={price} width={130} height={120} alt='Price' />
+                        <p>{t('about-us.3')}
+                            <span>{t('about-us.7')}</span>
+                        </p>
+                    </div>
+                    <div>
+                        <img src={time} width={125} height={120} alt='Fast' />
+                        <p>{t('about-us.4')}
+                            <span>{t('about-us.8')}</span>
+                        </p>
+                    </div>
+                    <div>
+                        <img src={every} width={120} height={120} alt='24/7' />
+                        <p>{t('about-us.5')}
+                            <span>{t('about-us.9')}</span>
+                        </p>
+                    </div>
+                    <div>
+                        <img src={care} width={120} height={120} alt='Care' />
+                        <p>{t('about-us.6')}
+                            <span>{t('about-us.10')}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div className='flex-warranties'>
+            <div className='warranties'>
+                <h2>{t('warranties.1')}</h2>
+                <h3>{t('warranties.2')}.</h3>
+            </div>
+            <div className='call-us'>
+                <h2>{t('warranties.3')}</h2>
+                <div className='btn'>
+                    <a href="tel:+37360125601"><button className='call-btn'> <img src={phone} width={40}
+                                alt='Phone' />+373 601 25 601</button></a>
+                </div>
+                <h3>{t('warranties.4')}.</h3>
+            </div>
+        </div>
+
+        <div className='content'>
+            <div className='pricelist'>
+                <div className='flex'>
+                    <div className='line'></div>
+                    <h2><strong>{t('price.1')}</strong></h2>
+                    <div className='line'></div>
+                </div>
+                <div className='text'>{t('price.2')} <span>200 {t('price.3')}</span>
+                    <div className='info-text'>
+                        *{t('price.4')}
+                        <Element name="servicii">
+                        </Element>
+                    </div>
+                </div>
+            </div>
+            <div className='info'>
+                <h2>{t('info.1')} <strong>24/24</strong>, {t('info.2')} <strong>{t('info.3')}</strong>, {t('info.4')}
+                    <strong>{t('info.5')}</strong>.</h2>
+            </div>
+            <div className='locations'>
+                <div className='flex-locations'>
+                    <div className='locations-items'>
+                        <h2>{t('info.6')} <span>{t('info.15')}:</span></h2>
+                        <ul>
+                            <div>
+                                <li>{t('info.8')}</li>
+                                <li>{t('info.9')}</li>
+                                <li>{t('info.10')}</li>
+                                <li>{t('info.11')}</li>
+                            </div>
+                            <div>
+                                <li>{t('info.12')}</li>
+                                <li>{t('info.13')}</li>
+                                <li>{t('info.14')}</li>
+                            </div>
+                        </ul>
+                    </div>
+                    <div className='show-text'>
+                        <h3>{t('info.7')}. <span>{t('info.16')}.</span></h3>
+                    </div>
+                </div>
+            </div>
+            <div className='call-us-2'>
+                <h2>{t('warranties.3')}</h2>
+                <div className='btn'>
+                    <a href="tel:+37360125601"><button className='call-btn'> <img src={phone2} width={40}
+                                alt='Phone' />+373 601 25 601</button></a>
+                </div>
+                <div className='space'></div>
+            </div>
+            <Element name="despre-noi">
+            </Element>
+            <h1 className='info-2-title'>{t('info.19')}</h1>
+            <div className='info-2'>
+                <h2 className='flex-info-2'>
+                    <p>{t('info.21')} <strong>{t('info.22')}</strong> {t('info.23')} <strong>{t('info.24')}</strong>
+                        {t('info.25')}</p>
+
+                    <p>{t('info.26')} <strong>{t('info.27')}</strong>. {t('info.28')}.</p>
+
+                    <p>{t('info.29')} <strong>{t('info.30')}</strong> {t('info.31')} <strong>{t('info.32')}.</strong>
+                    </p>
+                </h2>
+            </div>
+
+            <h1 className='info-3-title'>{t('info.18')}</h1>
+            <div className='flex-carousel'>
+                <Carousel responsive={responsive}>
+                    <div className='carousel'><img src={img1} alt='Transport' /></div>
+                    <div className='carousel'><img src={img2} alt='Transport' /></div>
+                    <div><img src={img3} alt='Transport' /></div>
+                    <div className='carousel'><img src={img4} alt='Transport' /></div>
+                </Carousel>
+                <div className='call-us-2'>
+                    <h2>{t('warranties.3')}</h2>
+                    <div className='btn'>
+                        <a href="tel:+37360125601"><button className='call-btn'> <img src={phone2} width={40}
+                                    alt='Phone' />+373 601 25 601</button></a>
+                    </div>
+                    <div className='space'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</>
+)
 }
