@@ -1,0 +1,104 @@
+@import '../../styles/app.scss';
+
+.navbar-wrapper {
+    max-height: 15vh;
+    background: $c-db;
+    max-width: 100vw;
+   
+    .navbar {
+
+        .head-info {
+            display: flex;
+            height: 15vh;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-transform: uppercase;
+
+            .header-title {
+                color: $c-r;
+                font-size: 1.9rem;
+                border-bottom: 1px solid $c-r;
+                display: block;
+            }
+
+            .phone-number {
+                color: #f1faee;
+                font-size: 2.2rem;
+                display: block;
+            }
+
+            .menu {
+                display: none;
+            }
+        }
+    }
+    @media (min-width: 1050px) {
+        .navbar {
+
+            .head-info {
+                display: flex;
+                height: 8vh;
+                text-transform: uppercase;
+    
+                .header-title {
+                    display: none;
+                }
+    
+                .phone-number {
+                    display: none;
+                }
+
+                .menu {
+                    display: flex;
+                    width: 1240px;
+                    justify-content: space-between;
+                    align-items: center;
+                    position: relative;
+
+                    color: whitesmoke;
+                    
+                    .navbar-grid-1 {
+                        display: flex;
+
+                        .left-menu {
+                            margin-right: 20px;
+                        }
+                    }
+                    
+                    .navbar-grid-2 {
+                        position: absolute;
+                        margin-left: auto;
+                        margin-right: auto;
+                        left: 0;
+                        right: 0;
+                        text-align: center;
+
+                        font-size: 1.2rem;
+                        
+                        span {
+                            border-bottom: 1px solid #FFD60A;
+                        }
+                    }
+
+                    .navbar-grid-3 {
+                        margin-left: 20px;
+                        font-size: 1.8rem;
+                        color: #FFC300;
+                    }
+                }
+                @media (max-width: 1250px) {
+                    .menu {
+                        width: 95vw;
+                    }
+                }
+            }
+        }
+    }
+}
+
+a {
+    color: inherit; 
+    text-decoration: inherit;
+  }
